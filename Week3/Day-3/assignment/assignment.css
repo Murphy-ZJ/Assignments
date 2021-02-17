@@ -40,9 +40,11 @@ footer {
 
 .wrapper {
     display:grid;
+    grid-area: wrapper;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 1fr 1fr 1fr 1fr;
-    grid-template-areas: 'header header'
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-areas: 'wrapper wrapper'
+    'header header'
     'a1 a2'
     'a3 a4'
     'footer footer';
