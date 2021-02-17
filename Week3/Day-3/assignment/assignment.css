@@ -4,17 +4,16 @@ body {
 }
 
 header {
-    background-color: lightskyblue;
+    background-color: teal;
     grid-area: header;
 }
 
 footer {
-    background-color: violet;
+    background-color: green;
     grid-area: footer;
 }
 
 .content {
-    background-color: teal;
     grid-area: content;
 }
 
@@ -42,16 +41,15 @@ footer {
     display:grid;
     grid-area: wrapper;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(5, 1fr);
+    grid-template-rows: .5fr repeat(4, 1fr);
     grid-template-areas: 'wrapper wrapper'
     'header header'
     'a1 a2'
     'a3 a4'
     'footer footer';
-    background-color: blue;
-    gap: 1px;
+    background-color: lightskyblue;
+    gap: 5px;
     width: 1fr;
     height: 100vh;
-    margin: 0;
-    padding: 0;
+    padding: 10px;
 }
