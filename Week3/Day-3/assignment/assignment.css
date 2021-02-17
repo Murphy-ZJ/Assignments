@@ -1,0 +1,55 @@
+body {
+    margin: 0;
+    background-color: black;
+}
+
+header {
+    background-color: lightskyblue;
+    grid-area: header;
+}
+
+footer {
+    background-color: violet;
+    grid-area: footer;
+}
+
+.content {
+    background-color: teal;
+    grid-area: content;
+}
+
+#a1 {
+    grid-area: a1;
+    background-color: blueviolet;
+}
+
+#a2 {
+    grid-area: a2;
+    background-color: blueviolet;
+}
+
+#a3 {
+    grid-area: a3;
+    background-color: blueviolet;
+}
+
+#a4 {
+    grid-area: a4;
+    background-color: blueviolet;
+}
+
+.wrapper {
+    display:grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr 1fr 1fr;
+    grid-template-areas: 'header header'
+    'a1 a2'
+    'a3 a4'
+    'footer footer';
+    background-color: blue;
+    gap: 1px;
+    width: 1fr;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+}
