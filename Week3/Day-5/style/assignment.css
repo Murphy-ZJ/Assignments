@@ -1,0 +1,60 @@
+body {
+    padding: 0;
+    margin: 0;
+}
+
+#menu {
+  background-color: black;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.menu-item {
+    margin: 10px;
+}
+
+#advertisement {
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+    height: 5rem;
+    width: 100vw;
+    border: dotted 1px black;
+}
+
+.image {
+    height: 150px;
+    width: 150px;
+}
+
+#items {
+    display: flex;
+    flex-direction: row;
+}
+
+.item {
+    text-align: center;
+}
+
+#ad {
+    height: 5rem;
+    width: 100vw;  
+}
+
+@media (min-width: 320px) and (max-width: 480px) {
+  #menu {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #items {
+      flex-direction: column;
+  }
+
+  .image {
+      height: auto;
+      width: 450px;
+  }
+}
