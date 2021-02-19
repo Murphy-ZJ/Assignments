@@ -43,7 +43,7 @@ body {
     width: 98vw;  
 }
 
-@media (min-width: 320px) and (max-width: 480px) {
+@media (min-width: 400px) and (max-width: 480px) {
   #menu {
     flex-direction: column;
     justify-content: center;
@@ -63,6 +63,27 @@ body {
       display: none;
   }
 }
+
+@media (min-width: 320px) and (max-width: 400px) {
+    #menu {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #items {
+        flex-direction: column;
+    }
+  
+    .image {
+        height: auto;
+        width: 350px;
+    }
+  
+    #advertisement, #ad {
+        display: none;
+    }
+  }
 
 @media (max-width: 320px) {
     #menu {
