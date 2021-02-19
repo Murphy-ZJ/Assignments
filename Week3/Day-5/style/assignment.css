@@ -16,10 +16,9 @@ body {
 }
 
 #advertisement {
-    margin-top: .5rem;
-    margin-bottom: .5rem;
+    margin: .5rem;
     height: 5rem;
-    width: 100vw;
+    width: 98vw;
     border: dotted 1px black;
 }
 
@@ -31,6 +30,8 @@ body {
 #items {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
 }
 
 .item {
@@ -39,7 +40,7 @@ body {
 
 #ad {
     height: 5rem;
-    width: 100vw;  
+    width: 98vw;  
 }
 
 @media (min-width: 320px) and (max-width: 480px) {
@@ -57,4 +58,29 @@ body {
       height: auto;
       width: 450px;
   }
+
+  #advertisement, #ad {
+      display: none;
+  }
 }
+
+@media (max-width: 320px) {
+    #menu {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+  
+    #items {
+        flex-direction: column;
+    }
+  
+    .image {
+        height: auto;
+        width: 200px;
+    }
+  
+    #advertisement, #ad {
+        display: none;
+    }
+  }
