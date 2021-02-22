@@ -65,6 +65,7 @@ class Account {
       this.accounts[this.selectedAccount - 1].balance =
         this.accounts[this.selectedAccount - 1].balance + this.depositAmount;
       console.log(this.accounts[this.selectedAccount - 1]);
+      this.freezeAccount();
       this.viewAccount();
     } else if (
       this.options == "2" &&
@@ -73,7 +74,11 @@ class Account {
       this.withdrawAmount = parseInt(prompt("Enter amount to withdraw"));
       this.accounts[this.selectedAccount - 1].balance =
         this.accounts[this.selectedAccount - 1].balance - this.withdrawAmount;
-      console.log(this.accounts[this.selectedAccount - 1]);
+      if (this.accounts[this.selectedAccount - 1].balance <= 0) {
+        this.accounts[this.selectedAccount - 1].balance -= 35;
+        console.log(this.accounts[this.selectedAccount - 1]);
+        this.viewAccount();
+      } else console.log(this.accounts[this.selectedAccount - 1]);
       this.viewAccount();
     } else if (
       this.options == "3" &&
@@ -102,13 +107,10 @@ class Account {
 
   freezeAccount() {
     for (let item of this.accounts) {
-      if (item["status"] == "Open") {
-        if (item["balance"] <= 0) {
-          item["balance"] - 35;
-          item["status"] = "Frozen";
-        } else if (item["balance"] >= 0) {
-          item["status"] = "Open";
-        } else return;
+      if (item["balance"] <= 0) {
+        item["status"] = "Frozen";
+      } else if (item["balance"] >= 0) {
+        item["status"] = "Open";
       } else return;
     }
   }
