@@ -9,7 +9,7 @@ newTaskButton.addEventListener("click", function () {
   taskText.className = "title";
   taskText.innerHTML = task;
   let taskArticle = document.createElement("article");
-  taskArticle.className = "tile is-parent notification is-info";
+  taskArticle.className = "tile is-parent notification is-info is-flex";
   let taskComplete = document.createElement("input");
   taskComplete.type = "checkbox";
   taskRemove = document.createElement("button");
