@@ -1,8 +1,6 @@
 let firstNameBox = document.getElementById('firstNameBox')
-console.log(firstNameBox)
 
 let lastNameBox = document.getElementById('lastNameBox')
-console.log(lastNameBox)
 
 let fullName = document.getElementById('fullName')
 
