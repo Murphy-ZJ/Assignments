@@ -18,6 +18,7 @@ newTaskButton.addEventListener("click", function () {
   taskArticle.appendChild(taskComplete);
   taskArticle.appendChild(taskText);
   taskWrapperIncomp.appendChild(taskArticle);
+  newTaskInput.value = ""
 
 
   taskComplete.addEventListener("change", function(){
