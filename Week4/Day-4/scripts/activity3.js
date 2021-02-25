@@ -13,7 +13,6 @@ let counterID = window.setInterval(function() {
     imgContainer.innerHTML = `
     <img src="${images[index]}">
     `
-    console.log(images[index])
     if(index == 4) {
         index = -1
     }
