@@ -15,6 +15,11 @@ img[src="null"] {
   box-shadow: transparent;
 }
 
-.hero{
-    background-color: lightslategray!important;
+.hero {
+  background-color: lightslategray !important;
+}
+
+.section {
+  margin-left: 5%;
+  margin-right: 5%;
 }
