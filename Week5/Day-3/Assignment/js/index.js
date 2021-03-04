@@ -22,7 +22,7 @@ function outputWeather(onLoad) {
 btnSubmit.addEventListener('click', function(e) {
     e.preventDefault()
     contentWrapper.innerHTML = ''
-    outputWeather(function(data) {
+    outputWeather((data) => {
         contentWrapper.innerHTML = `<div>
         <ul>
         <li>City: ${data.name}</li>
