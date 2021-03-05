@@ -1,3 +1,4 @@
+/// Input/Display Constants ///
 const storeNameInput = document.getElementById("storeNameInput");
 const storeContentInput = document.getElementById("storeContentInput");
 const btnSubmit = document.getElementById("btnSubmit");
@@ -6,13 +7,15 @@ const storeList = document.getElementById("storeList");
 const storeContentUpdate = document.getElementById("storeContentUpdate");
 const submitWrapper = document.getElementById("submitWrapper");
 
-/// Auth
+/// Auth Constants ///
 const userEmail = document.getElementById("userEmail");
 const userPass = document.getElementById("userPass");
 const logIn = document.getElementById("logIn");
 const logOut = document.getElementById("logOut");
 const signUp = document.getElementById("signUp");
 
+
+/// Deletes documents in "stores" collection ///
 function deleteStoreName(storeId) {
   db.collection("stores")
     .doc(storeId)
@@ -22,6 +25,7 @@ function deleteStoreName(storeId) {
     });
 }
 
+/// Adds and removes list items to individual documents ///
 function addStoreContent(contentID) {
   let contentRef = db.collection("stores").doc(contentID);
   contentRef.update({
@@ -40,6 +44,7 @@ function delStoreContent(contentID) {
   fetchStoreNameAll();
 }
 
+/// Fetches content from database and inserts into HTML ///
 function fetchStoreNameAll() {
   storeList.innerHTML = "";
   db.collection("stores")
@@ -59,15 +64,16 @@ function fetchStoreNameAll() {
     });
 }
 
+/// Creates new documents in the "stores" collection, creating the collection if not present ///
 btnSubmit.addEventListener("click", (e) => {
   e.preventDefault();
   const storeName = storeNameInput.value;
   const storeContent = storeContentInput.value;
   db.collection("stores")
     .add({
-      name: storeName,
-      content: [storeContent],
-      author: userID
+      name: storeName, /// Name of document
+      content: [storeContent], /// Initial list item for document
+      author: userID /// Unique ID of document author
     })
     .then((docRef) => {
       fetchStoreNameAll();
@@ -75,7 +81,7 @@ btnSubmit.addEventListener("click", (e) => {
   fetchStoreNameAll();
 });
 
-/// Auth
+/// Auth ///
 logIn.addEventListener("click", (e) => {
   const email = userEmail.value;
   const pass = userPass.value;
@@ -94,14 +100,14 @@ logOut.addEventListener("click", () => {
   auth.signOut();
 });
 
-///Realtime Listener
+/// Realtime Listener ///
 auth.onAuthStateChanged((firebaseUser) => {
-  if (firebaseUser) {
+  if (firebaseUser) { /// If user is logged in, stores user ID in a variable and displays site content
     userID = firebaseUser.uid
     logOut.classList.remove("hidden");
     submitWrapper.classList.remove("hidden");
     contentWrapper.classList.remove("hidden");
-  } else {
+  } else { /// If not signed in, hides site content aside from auth field
     console.log("Not signed in");
     logOut.classList.add("hidden");
     submitWrapper.classList.add("hidden");
