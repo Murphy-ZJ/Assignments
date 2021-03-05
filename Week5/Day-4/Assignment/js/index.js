@@ -8,8 +8,8 @@ const storeContentUpdate = document.getElementById("storeContentUpdate");
 const submitWrapper = document.getElementById("submitWrapper");
 
 /// Auth Constants ///
-const userEmail = document.getElementById("userEmail");
-const userPass = document.getElementById("userPass");
+const userEmail = document.getElementById("userEmailInput");
+const userPass = document.getElementById("userPassInput");
 const logIn = document.getElementById("logIn");
 const logOut = document.getElementById("logOut");
 const signUp = document.getElementById("signUp");
@@ -53,7 +53,7 @@ function fetchStoreNameAll() {
       snapshot.forEach((doc) => {
         let dataRaw = doc.data();
         let storeData = `
-        <li>${dataRaw.name}</li>
+        <li>${dataRaw.name}: ${dataRaw.email}</li>
         <button onclick="deleteStoreName('${doc.id}')">Delete</button>
         <button onclick="addStoreContent('${doc.id}')">Add Item</button>
         <button onclick="delStoreContent('${doc.id}')">Remove Item</button>
@@ -73,7 +73,8 @@ btnSubmit.addEventListener("click", (e) => {
     .add({
       name: storeName, /// Name of document
       content: [storeContent], /// Initial list item for document
-      author: userID /// Unique ID of document author
+      author: userID, /// Unique ID of document author
+      email: userEmailRaw
     })
     .then((docRef) => {
       fetchStoreNameAll();
@@ -104,6 +105,7 @@ logOut.addEventListener("click", () => {
 auth.onAuthStateChanged((firebaseUser) => {
   if (firebaseUser) { /// If user is logged in, stores user ID in a variable and displays site content
     userID = firebaseUser.uid
+    userEmailRaw = firebaseUser.email
     logOut.classList.remove("hidden");
     submitWrapper.classList.remove("hidden");
     contentWrapper.classList.remove("hidden");
