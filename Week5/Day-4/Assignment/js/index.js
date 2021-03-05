@@ -47,7 +47,13 @@ function fetchStoreNameAll() {
     .then((snapshot) => {
       snapshot.forEach((doc) => {
         let dataRaw = doc.data();
-        let storeData = `<li>${dataRaw.name}</li><button onclick="deleteStoreName('${doc.id}')">Delete</button><button onclick="addStoreContent('${doc.id}')">Add Item</button><button onclick="delStoreContent('${doc.id}')">Remove Item</button><br>Content: ${dataRaw.content}`;
+        let storeData = `
+        <li>${dataRaw.name}</li>
+        <button onclick="deleteStoreName('${doc.id}')">Delete</button>
+        <button onclick="addStoreContent('${doc.id}')">Add Item</button>
+        <button onclick="delStoreContent('${doc.id}')">Remove Item</button>
+        <br>Content: ${dataRaw.content}
+        `;
         storeList.insertAdjacentHTML("beforeend", storeData);
       });
     });
